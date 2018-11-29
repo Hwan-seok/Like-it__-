@@ -1,0 +1,42 @@
+<script>
+        var li = document.createElement('li');
+        li.className="media";
+
+        var div = document.createElement('div');
+        div.className="media-body";
+        li.appendChild(div);
+         
+        var div2 = document.createElement('div');
+        div2.className="media";
+        div.appendChild(div2);
+
+        var a = document.createElement('a');
+        a.className="pull-left";
+        a.href="sdfg";
+        var img = document.createElement('img');
+        img.style.maxHeight="40px";
+        img.classList.add("media-object","img-circle");
+        img.src="assets/img/user.png";
+
+        a.appendChild(img);
+        div2.appendChild(a);
+
+        var div3 = document.createElement('div');
+        div3.className="media-body";
+        div3.textContent="asdf";
+
+        var h5 = document.createElement('h5');
+        h5.textContent="alexdeo||user";
+        
+        var small = document.createElement('small');
+        small.className="text-muted";
+        small.textContent="Active From 3 hours";
+
+        div3.appendChild(h5);
+        div3.appendChild(small);
+
+        div2.appendChild(div3);
+        
+        var list= document.getElementsByClassName("media-list");
+        list[1].appendChild(li);
+    </script>

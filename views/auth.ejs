@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<!--
+	Aesthetic by gettemplates.co
+	Twitter: http://twitter.com/gettemplateco
+	URL: http://gettemplates.co
+-->
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>#Like it</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="gettemplates.co" />
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Montserrat:400,700" rel="stylesheet"> -->
+
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<div class="gtco-loader"></div>
+
+	<div id="page">
+		<nav class="gtco-nav" role="navigation">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-sm-2 col-xs-2">
+						<div id="gtco-logo"><a href="/">LikeIt<sup>&trade;</sup></a></div>
+					</div>
+					<div class="col-xs-10 text-right fh5co-top-social">
+						Made by KHS
+						<ul class="gtco-social">
+							<li><a href="https://www.facebook.com/profile.php?id=100006310957929" class="icon-facebook"></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+
+		<div id="gtco-intro">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-3 text-center">
+						<div class="dt js-height">
+							<div class="dtc animate-box">
+								<h2 class="gradient-text" style="margin-top:100px"># Like it!</h2>
+								<%if(!register){%>
+								<div class="login-form">
+									<form action="/auth/login" method="post">
+										<h3 class="text-center">Sign in</h3>   
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-user"></i></span>
+												<input type="text" class="form-control" name="id" placeholder="ID" required="required">				
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+												<input type="password" class="form-control" name="password" placeholder="Password" required="required">				
+											</div>
+										</div>        
+										<div class="form-group">
+											<button type="submit" class="btn btn-primary login-btn btn-block">Log in</button>
+										</div>
+										<div class="clearfix">
+											<a href="#" class="pull-center">Forgot Password?</a>
+										</div>
+										<div class="or-seperator"><i>or</i></div>
+										<p class="text-center">Login with your social media account</p>
+										<div class="text-center social-btn">
+											<a href="/auth/kakao" class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp; Kakao</a>
+										</div>
+									</form>
+									<p class="text-center text-muted small">Don't have an account? <a href="/auth/register">Sign up here!</a></p>
+								</div>
+								<%}else{%>
+									<div class="login-form">
+										<form action="/auth/register" method="post" enctype="multipart/form-data">
+											<h3 class="text-center">Join</h3>   
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-user"></i></span>
+													<input type="text" class="form-control" name="id" placeholder="ID" required="required">				
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="input-group">
+													<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+													<input type="password" class="form-control" name="password" placeholder="Password" required="required">				
+												</div>
+											</div>        
+											<div class="form-group">
+													<div class="input-group">
+														<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+														<input type="text" class="form-control" name="nickname" placeholder="nickname" required="required">				
+													</div>
+												</div>        
+												<div class="form-group">
+														<div class="input-group">
+															<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+															<input type="text" class="form-control" name="name" placeholder="name" required="required">				
+														</div>
+													</div>   
+													<div class="form-group">
+															<div class="input-group">
+																<input type="file" class="form-control" name="file" required="required">				
+															</div>
+														</div>        
+													<div class="form-group">
+												<button type="submit" class="btn btn-primary login-btn btn-block">Register</button>
+											</div>
+											<div class="or-seperator"><i>or</i></div>
+											<p class="text-center">Register with your social media account</p>
+											<div class="text-center social-btn">
+												<a href="/auth/kakao" class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp; Kakao</a>
+											</div>
+										</form>
+										<p class="text-center text-muted small">Already have an account? <a href="/auth/register">Sign in here!</a></p>
+									</div>
+								<%}%>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+			<footer id="fh5co-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="fh5co-footer-widget">
+								LiKEIT <sup>&trade;</sup>&copy; All Rights Reserved.<br>Hwan-Seok Kang
+							</div>
+						</div>
+						<div class="col-md-3 col-md-push-1">
+							<div class="fh5co-footer-widget">
+								<p>010 6430 6352 <br>tttkhs@khu.ac.kr</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-push-1">
+							<div class="fh5co-footer-widget gtco-social-wrap">
+								<ul class="gtco-social">
+									<li><a href="https://www.facebook.com/profile.php?id=100006310957929" class="icon-facebook"></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+
+		</div>
+
+		<div class="gototop js-top">
+			<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+		</div>
+
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+
+		<!-- Main -->
+		<script src="js/main.js"></script>
+
+</body>
+
+</html>

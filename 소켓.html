@@ -1,0 +1,38 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="LikeIt">
+        <div></div>
+        <div id="name">
+            &nbsp #  &nbsp &nbsp&nbsp&nbsp Like it!
+        </div>
+        <div></div>
+    </div>
+    <div class="authentication">
+        <div id="login">
+                <button class="ui teal button massive">Log in!</button>
+        </div>
+        <div id="joinus">
+                <button class="ui teal button massive">Join us!</button>
+        </div>
+    </div>
+    <script>
+    var webSocket = new WebSocket("ws://localhost:3000");
+    webSocket.onopen = ()=>{
+        console.log('서버와 웹 소켓 연결 성공!');
+    }
+    webSocket.onmessage = (event) =>{
+        console.log(event.data);
+        webSocket.send('클라이언트 -> 서버 답장 보냄');
+    }
+    </script>
+</body>
+
+</html>
