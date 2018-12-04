@@ -56,11 +56,9 @@ router.post('/contents/:category/makeroom', authCheck, (req, res) => {
   })
 })
 router.get('/contents/:category/room/:room', authCheck, (req, res) => {
-  let new_room=false;
   const user = req.user;
   const sql_1= "SELECT * FROM rooms where num=?"; //room info
   const sql_2 = "Select * From participants WHERE room=?"; //participants
-  const sql_3 = "Select * From chat WHERE room=?"; //chat
   const roomnum=req.params.room *= 1;
   const category=req.params.room;
     db.query(sql_1,req.params.room,(err,result)=>{
@@ -68,23 +66,18 @@ router.get('/contents/:category/room/:room', authCheck, (req, res) => {
       const roomname=result[0].name;
     db.query(sql_2, [req.params.room], (err, people) => {
       //방에 참가하고 있는 인원들 객체 배열 [ {"id":"1123",name: "asdfa","nickname":"LALA" ,"profile_image":"123"} , ... ]
-      db.query(sql_3, [req.params.room], (err, chat) => {
-        //채팅한 말 객체들의 배열 [ { "sended":"YOUT","sended_nickName":"YOU" , time : "now" , description : "lala", profile_image : "!@#@!#"} ,  ... ]
-        if(chat[0]==undefined)
-          new_room=true;
+      // 원래 이전 채팅을 불러왔으나 불러올 필요가 없음을 깨닫고 불러오는 부분 없앰 2018-12-05 00시경 commit
         res.render('chat', {
-          main: req.user,
-          chat,
+          main: user,
           roomnum,
           people,
-          new_room,
           category,
           roomname
         })
       }) 
     })
   })
-})
+
 router.get('/favicon.ico',(req,res)=>{
   res.send('./favicon.ico');
 })

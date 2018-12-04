@@ -188,20 +188,8 @@
 									var list = document.getElementsByClassName("media-list");
 									list[0].appendChild(li);
 									}
-
-									let temp ={};
-									let chats = [];
-									<%chat.forEach((chat)=>{%>
-										
-										temp={};
-										temp.sended = "<%=chat.sended%>";
-										temp.sended_Nickname = "<%=chat.sended_nickname%>";
-										temp.time = "<%=chat.time%>";
-										temp.description = "<%=chat.description%>";
-										temp.profile_image="<%=chat.profile_image%>";
-										chats.push(temp);
-									<%})%> //채팅한 말 객체들의 배열 [ { room : 10  "sended":"YOUT","sended_NickName":"YOU" , time : "now" , description : "lala", profile_image : "!@#@!#"} ,  ... ]
-       
+									// 원래 이전 채팅을 불러왔으나 불러올 필요가 없음을 깨닫고 불러오는 부분 없앰 2018-12-02 00시경 commit
+									
 									let tmp ={};
 									let people=[];
 
@@ -212,13 +200,7 @@
 										tmp.nickname= "<%=people.nickname%>";
 										people.push(tmp);
 									<%})%>  //방에 참가하고 있는 인원들 객체 배열 [ {"id":"1123",name: "asdfa","nickname":"LALA" ,"profile_image":"123"} , ... ]
-									if(<%=!new_room%>){
-									const loop3 = chats.length;
-									for(let i=0;i<loop3;i++){
-									chating(chats[i]);
-									}
-								}
-									// document.write()
+									
 									scroll_Bot();
 								</script>
 							</ul>
