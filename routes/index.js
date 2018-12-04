@@ -67,7 +67,7 @@ router.post('/contents/:category/room/:room/picture', upload.single('gif'), asyn
     msg.description = data;
     msg.gif_src = req.file.location;
      //클라이언트가 메세지로 GiFsEnDeD를 받으면 gif_src로 gif를 받아옴
-    const sql = "INSERT INTO chat (room, description,sended,sended_nickname,time,profile_image,gif_src) VALUES (?,'GiFsEnDeD',?,?,?,?,?)";
+    const sql = "INSERT INTO chat (room, description,sended,sended_nickname,time,profile_image,gif_src) VALUES (?,'',?,?,?,?,?)";
      db.query(sql, [req.params.room, msg.sended, msg.sended_Nickname, msg.time, msg.profile_image, msg.gif_src], (err, result) => {
       req.app.get('chat').to(req.params.room).emit('chat_sended_to_client', msg);
       res.send('ok');

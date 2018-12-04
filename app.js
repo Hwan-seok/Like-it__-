@@ -4,6 +4,7 @@ app = express(),
 path = require('path'),
 cookieParser = require('cookie-parser'),
 logger = require('morgan'),
+favicon = require('serve-favicon'),
 server= require('http').createServer(app),
 indexRouter = require('./routes/index'),
 authRouter = require('./routes/auth')(app),
@@ -18,6 +19,8 @@ app.use(express.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+
+app.use(favicon(path.join(__dirname,'','favicon.ico')));
 
 app.use('/',express.static(path.join(__dirname, 'public')));
 app.use('/auth',express.static(path.join(__dirname, 'public')));
