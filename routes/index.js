@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
   res.render('index', {
     main: req.user
   });
-});
+})
 router.get('/contents/:category/page/:page', authCheck, (req, res) => {
 
   const sql = "SELECT num,name,owner,likes,numParticipants FROM rooms WHERE contents=? LIMIT ?,?";
@@ -64,9 +64,7 @@ router.post('/contents/:category/room/:room/picture', upload.single('gif'), asyn
     msg.sended = req.user.id;
     msg.sended_Nickname = req.user.nickname;
     msg.profile_image = req.user.profile_image;
-    msg.description = data;
     msg.gif_src = req.file.location;
-    console.log(req.app.get('chat'));
     const sql = "INSERT INTO chat (room, description,sended,sended_nickname,time,profile_image,gif_src) VALUES (?,'',?,?,?,?,?)";
      db.query(sql, [req.params.room, msg.sended, msg.sended_Nickname, msg.time, msg.profile_image, msg.gif_src], (err, result) => {
       req.app.get('chat').to(req.params.room).emit('chat_sended_to_client', msg);
