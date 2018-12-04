@@ -168,22 +168,35 @@
 									a.appendChild(img);
 									div2.appendChild(a);
 
-									var div3 = document.createElement('div');
-									div3.className = "media-body";
-									div3.textContent = chat.description;
-									var br = document.createElement('br');
-									div3.appendChild(br);
+									if(!chat.gif_src){
+									console.log("gif no");
+										var div3 = document.createElement('div');
+										div3.className = "media-body";
+										div3.textContent = chat.description;
+										var br = document.createElement('br');
+										div3.appendChild(br);
+										var small = document.createElement('small');
+										small.className = "text-muted";
+										small.textContent = `${chat.sended_Nickname} | ${chat.time}`;
 
-									var small = document.createElement('small');
-									small.className = "text-muted";
-									small.textContent = `${chat.sended_Nickname} | ${chat.time}`;
+										var hr = document.createElement('hr');
+										
+										div3.appendChild(small);
+										div3.appendChild(hr);
 
-									var hr = document.createElement('hr');
-
-									div3.appendChild(small);
-									div3.appendChild(hr);
-
-									div2.appendChild(div3);
+										div2.appendChild(div3);
+									}else{
+									console.log("gif yes");
+										var gif =document.createElement('img');
+										gif.src=chat.gif_src;
+										gif.style.minHeight="100px";
+										gif.style.minWidth="100px";
+										gif.style.maxHeight="500px";
+										gif.style.maxWidth="500px";
+										var br = document.createElement('br');
+										gif.appendChild(br);
+										div2.appendChild(gif);
+									}
 
 									var list = document.getElementsByClassName("media-list");
 									list[0].appendChild(li);
@@ -216,6 +229,9 @@
 							</div>
 						</form>
 					</div>
+					<label class="btn btn-primary btn-file">
+						<input type="file" name="upload" id="upload" style="display: none;" value="파일추가">
+					</label>
 				</div>
 				<script>
 					$('#chating').submit((e) => {
@@ -226,6 +242,23 @@
 						$('#message').focus();
 						e.preventDefault();
 					});
+					
+					let file=document.getElementById('upload');
+					 file.addEventListener("change",(e)=>{
+						const formData = new FormData();
+						const xhr = new XMLHttpRequest();
+						console.log (e.target.files);
+						formData.append('gif',e.target.files[0]);
+						xhr.onload = ()=>{
+							if(xhr.status===200)
+							e.target.file=null;
+							else
+							console.error(xhr.responseText);
+						};
+						xhr.open('POST','/contents/<%=category%>/room/<%=roomnum%>/picture');
+						xhr.send(formData);
+						e.preventDefault();
+						});
 				</script>
 
 				<div class="col-md-4">
