@@ -39,10 +39,10 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-db_option.js
-session.js
-kakao_option.js
-config.json
+# lib/db_option.js
+# lib/session.js
+# lib/kakao_option.js
+# lib/config.json
 # TypeScript v1 declaration files
 typings/
 
