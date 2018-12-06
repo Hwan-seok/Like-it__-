@@ -79,7 +79,7 @@ router.get('/contents/:category/room/:room', authCheck, (req, res) => {
   const sql_1= "SELECT * FROM rooms where num=?"; //room info
   const sql_2 = "Select * From participants WHERE room=?"; //participants
   const roomnum=req.params.room *= 1;
-  const category=req.params.room;
+  const category=req.params.category;
     db.query(sql_1,req.params.room,(err,result)=>{
       // 방 정보 
       const roomname=result[0].name;
